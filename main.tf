@@ -24,7 +24,7 @@ resource "aws_vpc" "vpc_test" {
 
 # Create Internet Gateway
 resource "aws_internet_gateway" "igw" {
-  vpc_id = aws_vpc.vpc_blynk.id
+  vpc_id = aws_vpc.vpc_test.id
   tags = {
     Name = "blynk-igw"
   }
