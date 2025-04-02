@@ -33,11 +33,5 @@ jobs:
       - name: Plan Terraform Destroy
         run: terraform plan -destroy -out=tfplan
 
-      - name: Require Manual Approval
-        uses: hmarr/auto-approve-action@v3
-        if: github.event_name == 'workflow_dispatch'
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Apply Terraform Destroy
         run: terraform apply -auto-approve tfplan
